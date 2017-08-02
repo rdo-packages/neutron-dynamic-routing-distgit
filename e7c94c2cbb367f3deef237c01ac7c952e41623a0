@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8c0949_d550eb60",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-08-02T11:20:42Z",
+      "side": 1,
+      "message": "It should be %{upstream_version}",
+      "range": {
+        "startLine": 15,
+        "startChar": 69,
+        "endLine": 15,
+        "endChar": 75
+      },
+      "revId": "e7c94c2cbb367f3deef237c01ac7c952e41623a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8c0949_f54de7c5",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-08-02T11:20:42Z",
+      "side": 1,
+      "message": "It should be %{name} python library.",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "e7c94c2cbb367f3deef237c01ac7c952e41623a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8c0949_154b53b1",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-08-02T11:20:42Z",
+      "side": 1,
+      "message": "It should be %{name} common package.",
+      "range": {
+        "startLine": 67,
+        "startChar": 9,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "e7c94c2cbb367f3deef237c01ac7c952e41623a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8c0949_35c76f14",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-08-02T11:20:42Z",
+      "side": 1,
+      "message": "It should %{name} common files.",
+      "range": {
+        "startLine": 73,
+        "startChar": 22,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "e7c94c2cbb367f3deef237c01ac7c952e41623a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8c0949_55ccfb35",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-08-02T11:20:42Z",
+      "side": 1,
+      "message": "replace it with %py_req_cleanup rpm macro.\nand add BuildRequires: openstack-macros",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 23
+      },
+      "revId": "e7c94c2cbb367f3deef237c01ac7c952e41623a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a8c0949_f5e407ae",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2017-08-02T11:20:42Z",
+      "side": 1,
+      "message": "What would be directly using oslo-config-generator to generate sample configs because may be the above script got changed or removed some day. It will break this step.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 50
+      },
+      "revId": "e7c94c2cbb367f3deef237c01ac7c952e41623a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
