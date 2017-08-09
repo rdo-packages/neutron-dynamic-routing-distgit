@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "5a890539_4ff38473",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-09T17:50:54Z",
+      "side": 1,
+      "message": "This is done by neutron team to enforce using the same major version for all related packages, look at https://review.rdoproject.org/r/#/c/6303/",
+      "parentUuid": "5a890539_ad923d9d",
+      "revId": "7e103794168bdacb9de8aa030a8d5392f458b1f4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a890539_cd8f8974",
         "filename": "openstack-neutron-dynamic-routing.spec",
         "patchSetId": 2
