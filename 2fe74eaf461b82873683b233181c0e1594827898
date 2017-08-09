@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_2fbc786c",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-09T18:41:09Z",
+      "side": 1,
+      "message": "I gues openstack-neutron-bgp-dragent should depend on openstack-neutron-dynamic-routing-common as it provides required policy file and python module as dependency.",
+      "revId": "2fe74eaf461b82873683b233181c0e1594827898",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_0fa7bc50",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-09T18:41:09Z",
+      "side": 1,
+      "message": "If possible, adding a %check section with running tests is recommended. example in https://github.com/rdo-packages/networking-fujitsu-distgit/blob/rpm-master/python-networking-fujitsu.spec#L70",
+      "revId": "2fe74eaf461b82873683b233181c0e1594827898",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_4fc1c4e3",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-09T18:41:09Z",
+      "side": 1,
+      "message": "You should add a -tests subpackage containing tests directory as in:\n\nhttps://github.com/rdo-packages/neutron-lbaas-distgit/blob/rpm-master/openstack-neutron-lbaas.spec#L87",
+      "revId": "2fe74eaf461b82873683b233181c0e1594827898",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_0f909ceb",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-09T18:41:09Z",
+      "side": 1,
+      "message": "/etc/neutron and neutron user are provided by package openstack-neutron-common so common package should depend on it.",
+      "revId": "2fe74eaf461b82873683b233181c0e1594827898",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_cf85b4ae",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-09T18:41:09Z",
+      "side": 1,
+      "message": "/etc/neutron and /etc/neutron/conf.d are provided by package openstack-neutron-common which also create user neutron, so openstack-neutron-bgp-dragent should depend on it.",
+      "range": {
+        "startLine": 163,
+        "startChar": 14,
+        "endLine": 163,
+        "endChar": 30
+      },
+      "revId": "2fe74eaf461b82873683b233181c0e1594827898",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
