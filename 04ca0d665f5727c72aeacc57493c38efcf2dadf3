@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_c9875e0e",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-23T14:45:45Z",
+      "side": 1,
+      "message": "ryu is imported in https://github.com/openstack/neutron-dynamic-routing/blob/master/neutron_dynamic_routing/services/bgp/agent/driver/ryu/driver.py#L18 . Should it be added as a requirement of python-%{servicename}?",
+      "revId": "04ca0d665f5727c72aeacc57493c38efcf2dadf3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_a98212fe",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-23T14:45:45Z",
+      "side": 1,
+      "message": "coverage is not required to run unit tests, i wouldn\u0027t add it as requires here.",
+      "range": {
+        "startLine": 71,
+        "startChar": 21,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "04ca0d665f5727c72aeacc57493c38efcf2dadf3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_299f0261",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-23T14:45:45Z",
+      "side": 1,
+      "message": "sphinx and openstackdocstheme are required to build docs, not for testing, they shouldn\u0027t be in requirements list for -tests",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 45
+      },
+      "revId": "04ca0d665f5727c72aeacc57493c38efcf2dadf3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_499c4e6a",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-23T14:45:45Z",
+      "side": 1,
+      "message": "reno is not required for tests, only to create release notes.",
+      "range": {
+        "startLine": 87,
+        "startChar": 22,
+        "endLine": 87,
+        "endChar": 23
+      },
+      "revId": "04ca0d665f5727c72aeacc57493c38efcf2dadf3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
