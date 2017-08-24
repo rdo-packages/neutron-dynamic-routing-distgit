@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_37203c49",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-08-24T15:46:47Z",
+      "side": 1,
+      "message": "For clarity, please move this block before %prep",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "ec3ab91d71ca74a82137f61510b41e80db114cd4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
