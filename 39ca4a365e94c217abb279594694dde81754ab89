@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a961159_d2c3a436",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-09-12T14:29:29Z",
+      "side": 1,
+      "message": "This should require python-%{servicename}",
+      "revId": "39ca4a365e94c217abb279594694dde81754ab89",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a961159_72ecb0c8",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-09-12T14:29:29Z",
+      "side": 1,
+      "message": "We don\u0027t need this check. Instead, we need to make sure oslo-config-generator is installed during the build, by specifying it in BuildRequires:\n\nBear in mind this will probably pull some other build requirements.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 2
+      },
+      "revId": "39ca4a365e94c217abb279594694dde81754ab89",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a961159_b2f45888",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-09-12T14:29:29Z",
+      "side": 1,
+      "message": "Since the test requirements are missing as BuildRequires, no tests are being executed (look for %check in https://logs.rdoproject.org/35/7935/8/check/DLRN-rpmbuild/Zea3cad8bd0ab4770929e68844f7c31d4/centos/current/rpmbuild.log)",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 26
+      },
+      "revId": "39ca4a365e94c217abb279594694dde81754ab89",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
