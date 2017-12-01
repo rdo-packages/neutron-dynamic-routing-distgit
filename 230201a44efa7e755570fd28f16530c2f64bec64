@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7be1f8_fd5eab11",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2017-12-01T10:18:01Z",
+      "side": 1,
+      "message": "Better using RPM embedded lua scripting.\nI\u0027ll provide you a snippet since it\u0027s not trivial, you may remove the lua comments if you like\n\n%global version 1.2.3 %{lua: \nlocal version \u003d rpm.expand(\"%version\") -- expand %version macro\nlocal end \u003d version:find(\"[.]\") -- find first dot or use the full string if there isn\u0027t\nlocal major_version \u003d version:sub(0, end-1) -- retrieve major\nrpm.define(\"major_version \" .. major_version) -- define major_version macro\n}\"",
+      "revId": "230201a44efa7e755570fd28f16530c2f64bec64",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_dd4ac754",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2017-12-01T10:18:01Z",
+      "side": 1,
+      "message": "No",
+      "revId": "230201a44efa7e755570fd28f16530c2f64bec64",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_bd3d13be",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2017-12-01T10:18:01Z",
+      "side": 1,
+      "message": "No",
+      "revId": "230201a44efa7e755570fd28f16530c2f64bec64",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_fd478b49",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2017-12-01T10:18:01Z",
+      "side": 1,
+      "message": "Upgrade path is respected as versioning is higher than previous package.",
+      "revId": "230201a44efa7e755570fd28f16530c2f64bec64",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
