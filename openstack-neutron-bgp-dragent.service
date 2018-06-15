@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenStack Neutron BGP Dynamic Routing agent
+After=syslog.target
+
+[Service]
+Type=simple
+User=neutron
+ExecStart=/usr/bin/neutron-bgp-dragent --config-file /usr/share/neutron/neutron-dist.conf --config-file /etc/neutron/neutron.conf --config-dir /etc/neutron/conf.d/common --config-dir /etc/neutron/conf.d/neutron-bgp-dragent --log-file /var/log/neutron/bgp-dragent.log
+PrivateTmp=true
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
