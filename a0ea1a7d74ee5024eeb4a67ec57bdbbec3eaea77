@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab921fb_4f820a02",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 10
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-06-28T09:50:09Z",
+      "side": 1,
+      "message": "Could package name be changed to python2-%{servicename}. It\u0027s the recommended naming convention to be ready for packages in order to be as ready as possible to new python3 packages.",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 18
+      },
+      "revId": "a0ea1a7d74ee5024eeb4a67ec57bdbbec3eaea77",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bab921fb_2f87d610",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-06-28T09:50:09Z",
+      "side": 1,
+      "message": "ditto, python2-",
+      "range": {
+        "startLine": 80,
+        "startChar": 12,
+        "endLine": 80,
+        "endChar": 39
+      },
+      "revId": "a0ea1a7d74ee5024eeb4a67ec57bdbbec3eaea77",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
