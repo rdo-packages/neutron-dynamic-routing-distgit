@@ -17,7 +17,6 @@ Source2: neutron-bgp-dragent.service
 
 BuildArch: noarch
 
-BuildRequires: gawk
 BuildRequires: openstack-macros
 BuildRequires: python2-devel
 BuildRequires: python-neutron >= %{neutron_epoch}:%{major_version}
