@@ -32,8 +32,8 @@ BuildRequires: python-mock >= 2.0
 # since it's in neutron project, but packaged in python-neutron-tests
 BuildRequires: python-neutron-tests >= %{neutron_epoch}:%{major_version}
 BuildRequires: python-oslotest >= 1.10.0
-BuildRequires: python-oslo-concurrency >= 3.8.0
-BuildRequires: python-os-testr >= 0.8
+BuildRequires: python-oslo-concurrency >= 3.25.0
+BuildRequires: python-os-testr >= 0.7
 BuildRequires: python-requests-mock >= 1.1
 BuildRequires: python-ryu >= 4.14
 BuildRequires: python-subunit >= 0.0.18
@@ -41,7 +41,7 @@ BuildRequires: python-testrepository >= 0.0.18
 BuildRequires: python-testresources >= 0.2.4
 BuildRequires: python-testtools >= 1.4.0
 BuildRequires: python-testscenarios >= 0.4
-BuildRequires: python-tempest >= 16.1.0
+BuildRequires: python-tempest >= 12.1.0
 BuildRequires: python-webob >= 1.7.1
 BuildRequires: python-webtest >= 2.0
 
@@ -83,7 +83,7 @@ Requires: python-neutron >= %{neutron_epoch}:%{major_version}
 Requires: python2-%{servicename}
 Requires: python-mock >= 2.0
 Requires: python-oslotest >= 1.10.0
-Requires: python-oslo-concurrency >= 3.8.0
+Requires: python-oslo-concurrency >= 3.25.0
 Requires: python-os-testr >= 0.8
 Requires: python-requests-mock >= 1.1
 Requires: python-ryu >= 4.14
