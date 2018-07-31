@@ -41,9 +41,11 @@ BuildRequires: python-testrepository >= 0.0.18
 BuildRequires: python-testresources >= 0.2.4
 BuildRequires: python-testtools >= 1.4.0
 BuildRequires: python-testscenarios >= 0.4
-BuildRequires: python-tempest >= 16.1.0
+BuildRequires: python-tempest >= 17.1.0
 BuildRequires: python-webob >= 1.7.1
 BuildRequires: python-webtest >= 2.0
+BuildRequires: python2-neutron-lib-tests
+BuildRequires: python2-neutron-tests-tempest
 
 Requires: openstack-%{servicename}-common = %{version}-%{release}
 
@@ -60,12 +62,13 @@ Requires: python-neutron >= %{neutron_epoch}:%{major_version}
 Requires: python2-eventlet >= 0.18.2
 Requires: python-httplib2 >= 0.9.1
 Requires: python2-netaddr >= 0.7.18
-Requires: python2-sqlalchemy >= 1.0.10
+Requires: python2-sqlalchemy >= 1.2.0
 Requires: python2-alembic >= 0.8.10
 Requires: python2-six >= 1.10.0
-Requires: python2-neutron-lib >= 1.13.0
-Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-neutron-lib >= 1.18.0
+Requires: python2-oslo-config >= 2:5.2.0
 Requires: python2-oslo-db >= 4.27.0
+Requires: python2-oslo-log >= 3.36.0
 Requires: python2-oslo-messaging >= 5.29.0
 Requires: python2-oslo-serialization >= 2.18.0
 Requires: python2-oslo-service >= 1.24.0
