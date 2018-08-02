@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_5981d68e",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-08-02T14:17:52Z",
+      "side": 1,
+      "message": "It has been bumped to 5.2.0.",
+      "range": {
+        "startLine": 67,
+        "startChar": 35,
+        "endLine": 67,
+        "endChar": 40
+      },
+      "revId": "b2568d303868f5981c39e33906f7106d755593bf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_f94e6a95",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-08-02T14:17:52Z",
+      "side": 1,
+      "message": "Also missing python2-oslo-log according to requirements.txt.",
+      "revId": "b2568d303868f5981c39e33906f7106d755593bf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
