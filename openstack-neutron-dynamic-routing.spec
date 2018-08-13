@@ -31,13 +31,13 @@ BuildRequires: python-mock >= 2.0
 # neutron.tests is imported but not specified in test-requirements.txt
 # since it's in neutron project, but packaged in python-neutron-tests
 BuildRequires: python-neutron-tests >= %{neutron_epoch}:%{major_version}
+BuildRequires: python2-neutron-lib-tests
 BuildRequires: python-oslotest >= 1.10.0
 BuildRequires: python-oslo-concurrency >= 3.8.0
-BuildRequires: python-os-testr >= 0.8
+BuildRequires: python-stestr
 BuildRequires: python-requests-mock >= 1.1
 BuildRequires: python-ryu >= 4.14
 BuildRequires: python-subunit >= 0.0.18
-BuildRequires: python-testrepository >= 0.0.18
 BuildRequires: python-testresources >= 0.2.4
 BuildRequires: python-testtools >= 1.4.0
 BuildRequires: python-testscenarios >= 0.4
@@ -84,11 +84,10 @@ Requires: python2-%{servicename}
 Requires: python-mock >= 2.0
 Requires: python-oslotest >= 1.10.0
 Requires: python-oslo-concurrency >= 3.8.0
-Requires: python-os-testr >= 0.8
+Requires: python-stestr
 Requires: python-requests-mock >= 1.1
 Requires: python-ryu >= 4.14
 Requires: python-subunit >= 0.0.18
-Requires: python-testrepository >= 0.0.18
 Requires: python-testresources >= 0.2.4
 Requires: python-testtools >= 1.4.0
 Requires: python-testscenarios >= 0.4
@@ -172,7 +171,7 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/neutron-bgp-dragent.serv
 mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 
 %check
-%{__python2} setup.py test
+stestr run
 
 %post -n openstack-neutron-bgp-dragent
 %systemd_post neutron-bgp-dragent.service
