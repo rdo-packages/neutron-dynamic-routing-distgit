@@ -8,7 +8,7 @@
 
 Name: openstack-%{servicename}
 Version: 13.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
@@ -117,7 +117,7 @@ This package contains Dynamic Routing common files.
 
 %package -n openstack-neutron-bgp-dragent
 Summary: Neutron BGP Dynamic Routing agent
-Requires: openstack-neutron-dynamic-routing-common
+Requires: openstack-neutron-dynamic-routing-common = %{version}-%{release}
 Requires: python2-ryu >= 4.24
 
 %description -n openstack-neutron-bgp-dragent
@@ -209,9 +209,11 @@ stestr run
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Thu Oct 11 2018 RDO <dev@lists.rdoproject.org> 13.0.0-2
+- Fix common package not being updated.
+
 * Thu Aug 30 2018 RDO <dev@lists.rdoproject.org> 13.0.0-1
 - Update to 13.0.0
 
 * Mon Aug 20 2018 RDO <dev@lists.rdoproject.org> 13.0.0-0.1.0rc1
 - Update to 13.0.0.0rc1
-
