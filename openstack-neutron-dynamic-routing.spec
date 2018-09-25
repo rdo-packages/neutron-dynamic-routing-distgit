@@ -117,7 +117,7 @@ This package contains Dynamic Routing common files.
 
 %package -n openstack-neutron-bgp-dragent
 Summary: Neutron BGP Dynamic Routing agent
-Requires: openstack-neutron-dynamic-routing-common
+Requires: openstack-neutron-dynamic-routing-common = %{version}-%{release}
 Requires: python2-ryu >= 4.24
 
 %description -n openstack-neutron-bgp-dragent
