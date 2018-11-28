@@ -50,7 +50,11 @@ BuildRequires: python2-neutron-tests-tempest
 Requires: openstack-%{servicename}-common = %{version}-%{release}
 
 Requires(pre): shadow-utils
-%{systemd_requires}
+%if 0%{?rhel} && 0%{?rhel} < 8
+%{?systemd_requires}
+%else
+%{?systemd_ordering} # does not exist on EL7
+%endif
 
 %description
 This is a Dynamic Routing addons for OpenStack Neutron (Networking) service.
