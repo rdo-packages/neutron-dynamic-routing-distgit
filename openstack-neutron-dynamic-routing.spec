@@ -1,3 +1,14 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global modulename neutron_dynamic_routing
 %global servicename neutron-dynamic-routing
@@ -18,34 +29,43 @@ Source2: neutron-bgp-dragent.service
 BuildArch: noarch
 
 BuildRequires: openstack-macros
-BuildRequires: python2-devel
-BuildRequires: python-neutron >= %{neutron_epoch}:%{major_version}
-BuildRequires: python-oslo-config
-BuildRequires: python-pbr
-BuildRequires: python-setuptools
+BuildRequires: python%{pyver}-devel
 BuildRequires: git
 BuildRequires: systemd
 
+BuildRequires: python%{pyver}-neutron >= %{neutron_epoch}:%{major_version}
+BuildRequires: python%{pyver}-oslo-config
+BuildRequires: python%{pyver}-pbr
+BuildRequires: python%{pyver}-setuptools
+BuildRequires: python%{pyver}-ryu >= 4.24
+
 # Requirements needed by tests
-BuildRequires: python-mock >= 2.0
+BuildRequires: python%{pyver}-mock >= 2.0
 # neutron.tests is imported but not specified in test-requirements.txt
 # since it's in neutron project, but packaged in python-neutron-tests
-BuildRequires: python-neutron-tests >= %{neutron_epoch}:%{major_version}
-BuildRequires: python2-neutron-lib-tests
-BuildRequires: python-oslotest >= 1.10.0
-BuildRequires: python-oslo-concurrency >= 3.8.0
-BuildRequires: python-stestr
+BuildRequires: python%{pyver}-neutron-tests >= %{neutron_epoch}:%{major_version}
+BuildRequires: python%{pyver}-neutron-tests-tempest
+BuildRequires: python%{pyver}-neutron-lib-tests
+BuildRequires: python%{pyver}-oslotest >= 1.10.0
+BuildRequires: python%{pyver}-oslo-concurrency >= 3.8.0
+BuildRequires: python%{pyver}-stestr
+BuildRequires: python%{pyver}-subunit >= 0.0.18
+BuildRequires: python%{pyver}-testresources >= 0.2.4
+BuildRequires: python%{pyver}-testtools >= 1.4.0
+BuildRequires: python%{pyver}-testscenarios >= 0.4
+BuildRequires: python%{pyver}-tempest >= 17.1.0
+BuildRequires: python%{pyver}-webob >= 1.7.1
+
+# Handle python2 exception
+%if %{pyver} == 2
+# Requirements needed by tests
 BuildRequires: python-requests-mock >= 1.1
-BuildRequires: python-ryu >= 4.24
-BuildRequires: python-subunit >= 0.0.18
-BuildRequires: python-testresources >= 0.2.4
-BuildRequires: python-testtools >= 1.4.0
-BuildRequires: python-testscenarios >= 0.4
-BuildRequires: python-tempest >= 17.1.0
-BuildRequires: python-webob >= 1.7.1
 BuildRequires: python-webtest >= 2.0
-BuildRequires: python2-neutron-lib-tests
-BuildRequires: python2-neutron-tests-tempest
+%else
+# Requirements needed by tests
+BuildRequires: python%{pyver}-requests-mock >= 1.1
+BuildRequires: python%{pyver}-webtest >= 2.0
+%endif
 
 Requires: openstack-%{servicename}-common = %{version}-%{release}
 
@@ -55,57 +75,71 @@ Requires(pre): shadow-utils
 %description
 This is a Dynamic Routing addons for OpenStack Neutron (Networking) service.
 
-%package -n python2-%{servicename}
+%package -n python%{pyver}-%{servicename}
 Summary: Neutron Dynamic Routing python library
 
-Requires: python-neutron >= %{neutron_epoch}:%{major_version}
-Requires: python2-eventlet >= 0.18.2
-Requires: python-httplib2 >= 0.9.1
-Requires: python2-netaddr >= 0.7.18
-Requires: python2-sqlalchemy >= 1.2.0
-Requires: python2-alembic >= 0.8.10
-Requires: python2-six >= 1.10.0
-Requires: python2-neutron-lib >= 1.18.0
-Requires: python2-oslo-config >= 2:5.2.0
-Requires: python2-oslo-db >= 4.27.0
-Requires: python2-oslo-log >= 3.36.0
-Requires: python2-oslo-messaging >= 5.29.0
-Requires: python2-oslo-serialization >= 2.18.0
-Requires: python2-oslo-service >= 1.24.0
-Requires: python2-oslo-utils >= 3.33.0
+Requires: python%{pyver}-neutron >= %{neutron_epoch}:%{major_version}
+Requires: python%{pyver}-eventlet >= 0.18.2
+Requires: python%{pyver}-netaddr >= 0.7.18
+Requires: python%{pyver}-sqlalchemy >= 1.2.0
+Requires: python%{pyver}-alembic >= 0.8.10
+Requires: python%{pyver}-six >= 1.10.0
+Requires: python%{pyver}-neutron-lib >= 1.18.0
+Requires: python%{pyver}-oslo-db >= 4.27.0
+Requires: python%{pyver}-oslo-log >= 3.36.0
+Requires: python%{pyver}-oslo-messaging >= 5.29.0
+Requires: python%{pyver}-oslo-serialization >= 2.18.0
+Requires: python%{pyver}-oslo-service >= 1.24.0
+Requires: python%{pyver}-oslo-utils >= 3.33.0
 
-%description -n python2-%{servicename}
+# Handle python2 exception
+%if %{pyver} == 2
+Requires: python-httplib2 >= 0.9.1
+Requires: python%{pyver}-oslo-config >= 2:5.2.0
+%else
+Requires: python%{pyver}-httplib2 >= 0.9.1
+Requires: python%{pyver}-oslo-config
+%endif
+
+%description -n python%{pyver}-%{servicename}
 This is Dynamic Routing service plugin for OpenStack Neutron (Networking) service.
 
 This package contains the Neutron Dynamic Routing Python library.
 
-%package -n python2-%{servicename}-tests
+%package -n python%{pyver}-%{servicename}-tests
 Summary: Neutron Dynamic Routing tests
 
-Requires: python-neutron >= %{neutron_epoch}:%{major_version}
-Requires: python2-%{servicename}
-Requires: python-mock >= 2.0
-Requires: python-oslotest >= 1.10.0
-Requires: python-oslo-concurrency >= 3.8.0
-Requires: python-stestr
-Requires: python-requests-mock >= 1.1
-Requires: python-ryu >= 4.24
-Requires: python-subunit >= 0.0.18
-Requires: python-testresources >= 0.2.4
-Requires: python-testtools >= 1.4.0
-Requires: python-testscenarios >= 0.4
-Requires: python-tempest >= 16.1.0
-Requires: python-webob >= 1.7.1
-Requires: python-webtest >= 2.0
+Requires: python%{pyver}-%{servicename}
+Requires: python%{pyver}-neutron >= %{neutron_epoch}:%{major_version}
+Requires: python%{pyver}-mock >= 2.0
+Requires: python%{pyver}-oslotest >= 1.10.0
+Requires: python%{pyver}-oslo-concurrency >= 3.8.0
+Requires: python%{pyver}-stestr
+Requires: python%{pyver}-ryu >= 4.24
+Requires: python%{pyver}-subunit >= 0.0.18
+Requires: python%{pyver}-testresources >= 0.2.4
+Requires: python%{pyver}-testtools >= 1.4.0
+Requires: python%{pyver}-testscenarios >= 0.4
+Requires: python%{pyver}-tempest >= 16.1.0
+Requires: python%{pyver}-webob >= 1.7.1
 
-%description -n python2-%{servicename}-tests
+# Handle python2 exception
+%if %{pyver} == 2
+Requires: python-requests-mock >= 1.1
+Requires: python-webtest >= 2.0
+%else
+Requires: python%{pyver}-requests-mock >= 1.1
+Requires: python%{pyver}-webtest >= 2.0
+%endif
+
+%description -n python%{pyver}-%{servicename}-tests
 This is a Dynamic Routing service plugin for Openstack Neutron (Networking) service.
 
 This package contains Neutron Dynamic Routing test files.
 
 %package common
 Summary: Neutron Dynamic Routing common package
-Requires: python2-%{servicename} = %{version}-%{release}
+Requires: python%{pyver}-%{servicename} = %{version}-%{release}
 Requires: openstack-neutron-common
 
 %description common
@@ -116,7 +150,7 @@ This package contains Dynamic Routing common files.
 %package -n openstack-neutron-bgp-dragent
 Summary: Neutron BGP Dynamic Routing agent
 Requires: openstack-neutron-dynamic-routing-common = %{version}-%{release}
-Requires: python2-ryu >= 4.24
+Requires: python%{pyver}-ryu >= 4.24
 
 %description -n openstack-neutron-bgp-dragent
 This package contains the Neutron BGP Dynamic Routing agent that will host
@@ -130,11 +164,11 @@ Neutron.
 %py_req_cleanup
 
 %build
-%py2_build
+%{pyver_build}
 
 # Generate sample config files
 for file in `ls etc/oslo-config-generator/*`; do
-    oslo-config-generator --config-file=$file
+    oslo-config-generator-%{pyver} --config-file=$file
 done
 
 find etc -name *.sample | while read filename
@@ -145,12 +179,12 @@ do
 done
 
 %install
-%py2_install
+%{pyver_install}
 
 # Remove unused files
-rm -rf %{buildroot}%{python2_sitelib}/bin
-rm -rf %{buildroot}%{python2_sitelib}/doc
-rm -rf %{buildroot}%{python2_sitelib}/tools
+rm -rf %{buildroot}%{pyver_sitelib}/bin
+rm -rf %{buildroot}%{pyver_sitelib}/doc
+rm -rf %{buildroot}%{pyver_sitelib}/tools
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_datadir}/%{servicename}
@@ -176,7 +210,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 %check
 # FIXME(jpena): we need to ignore unit test results
 # until https://bugs.launchpad.net/neutron/+bug/1803745 is fixed
-stestr run || true
+stestr-%{pyver} run || true
 
 %post -n openstack-neutron-bgp-dragent
 %systemd_post neutron-bgp-dragent.service
@@ -187,15 +221,15 @@ stestr run || true
 %postun -n openstack-neutron-bgp-dragent
 %systemd_postun_with_restart neutron-bgp-dragent.service
 
-%files -n python2-%{servicename}
+%files -n python%{pyver}-%{servicename}
 %license LICENSE
 %doc AUTHORS CONTRIBUTING.rst README.rst
-%{python2_sitelib}/%{modulename}
-%{python2_sitelib}/%{modulename}-*.egg-info
-%exclude %{python2_sitelib}/%{modulename}/tests
+%{pyver_sitelib}/%{modulename}
+%{pyver_sitelib}/%{modulename}-*.egg-info
+%exclude %{pyver_sitelib}/%{modulename}/tests
 
-%files -n python2-%{servicename}-tests
-%{python2_sitelib}/%{modulename}/tests
+%files -n python%{pyver}-%{servicename}-tests
+%{pyver_sitelib}/%{modulename}/tests
 
 %files common
 %license LICENSE
