@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9abe1de1_c9ded410",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 534
+      },
+      "writtenOn": "2018-12-11T09:46:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_29c79046",
+      "revId": "318031afa428815549e235b3d51d8ed8eedbd626",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abe1de1_09af2c82",
         "filename": "openstack-neutron-dynamic-routing.spec",
         "patchSetId": 7
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "9abe1de1_a9e160d2",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 534
+      },
+      "writtenOn": "2018-12-11T09:46:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_09af2c82",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 47
+      },
+      "revId": "318031afa428815549e235b3d51d8ed8eedbd626",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abe1de1_09c60c48",
         "filename": "openstack-neutron-dynamic-routing.spec",
         "patchSetId": 7
@@ -53,6 +95,24 @@
       "writtenOn": "2018-12-11T09:44:25Z",
       "side": 1,
       "message": "Missing provides line, let\u0027s add it:\n\n%{?python_provide:%python_provide python%{pyver}-%{servicename}-tests}",
+      "revId": "318031afa428815549e235b3d51d8ed8eedbd626",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_89e8dcb5",
+        "filename": "openstack-neutron-dynamic-routing.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 534
+      },
+      "writtenOn": "2018-12-11T09:46:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_09c60c48",
       "revId": "318031afa428815549e235b3d51d8ed8eedbd626",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
