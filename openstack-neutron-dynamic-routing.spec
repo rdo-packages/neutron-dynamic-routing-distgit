@@ -37,7 +37,7 @@ BuildRequires: python%{pyver}-neutron >= %{neutron_epoch}:%{major_version}
 BuildRequires: python%{pyver}-oslo-config
 BuildRequires: python%{pyver}-pbr
 BuildRequires: python%{pyver}-setuptools
-BuildRequires: python%{pyver}-ryu >= 4.24
+BuildRequires: python%{pyver}-os-ken >= 0.3.1
 
 # Requirements needed by tests
 BuildRequires: python%{pyver}-mock >= 2.0
@@ -116,7 +116,7 @@ Requires: python%{pyver}-mock >= 2.0
 Requires: python%{pyver}-oslotest >= 1.10.0
 Requires: python%{pyver}-oslo-concurrency >= 3.8.0
 Requires: python%{pyver}-stestr
-Requires: python%{pyver}-ryu >= 4.24
+Requires: python%{pyver}-os-ken >= 0.3.1
 Requires: python%{pyver}-subunit >= 0.0.18
 Requires: python%{pyver}-testresources >= 0.2.4
 Requires: python%{pyver}-testtools >= 1.4.0
@@ -151,7 +151,7 @@ This package contains Dynamic Routing common files.
 %package -n openstack-neutron-bgp-dragent
 Summary: Neutron BGP Dynamic Routing agent
 Requires: openstack-neutron-dynamic-routing-common = %{version}-%{release}
-Requires: python%{pyver}-ryu >= 4.24
+Requires: python%{pyver}-os-ken >= 0.3.1
 
 %description -n openstack-neutron-bgp-dragent
 This package contains the Neutron BGP Dynamic Routing agent that will host
