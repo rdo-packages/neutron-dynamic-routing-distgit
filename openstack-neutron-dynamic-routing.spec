@@ -192,10 +192,6 @@ install -d -m 755 %{buildroot}%{_datadir}/%{servicename}
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{servicename}
 install -d -m 755 %{buildroot}%{_localstatedir}/log/%{servicename}
 
-# Move policy files to proper location
-install -d -m 755 %{buildroot}%{_sysconfdir}/neutron
-mv %{buildroot}/usr/etc/neutron/policy.d %{buildroot}/%{_sysconfdir}/neutron
-
 # Move config files to proper location
 install -d -m 755 %{buildroot}%{_sysconfdir}/neutron
 
@@ -234,7 +230,6 @@ stestr-%{pyver} run || true
 
 %files common
 %license LICENSE
-%config(noreplace) %attr(-, root, neutron) %{_sysconfdir}/neutron/policy.d/*
 
 %files -n openstack-neutron-bgp-dragent
 %license LICENSE
