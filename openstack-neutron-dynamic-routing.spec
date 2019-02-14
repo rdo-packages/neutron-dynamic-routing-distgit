@@ -217,3 +217,4 @@ stestr run
 
 * Mon Aug 20 2018 RDO <dev@lists.rdoproject.org> 13.0.0-0.1.0rc1
 - Update to 13.0.0.0rc1
+# REMOVEME: error caused by commit https://github.com/openstack/neutron-dynamic-routing/commit/72ed58d02ede0057a3c037656ed117f24352ebfb
