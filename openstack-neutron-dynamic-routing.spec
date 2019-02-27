@@ -7,8 +7,8 @@
 %define neutron_epoch 1
 
 Name: openstack-%{servicename}
-Version: 13.0.0
-Release: 2%{?dist}
+Version: 13.0.1
+Release: 1%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
@@ -209,6 +209,9 @@ stestr run
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Wed Feb 27 2019 RDO <dev@lists.rdoproject.org> 13.0.1-1
+- Update to 13.0.1
+
 * Thu Oct 11 2018 RDO <dev@lists.rdoproject.org> 13.0.0-2
 - Fix common package not being updated.
 
