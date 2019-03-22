@@ -1,3 +1,4 @@
+%global milestone .0rc1
 # Macros for py2/py3 compatibility
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global pyver %{python3_pkgversion}
@@ -18,12 +19,16 @@
 %define neutron_epoch 1
 
 Name: openstack-%{servicename}
-Version: XXX
-Release: XXX
+Version: 14.0.0
+Release: 0.1%{?milestone}%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
+#
+# patches_base=14.0.0.0rc1
+#
+
 Source2: neutron-bgp-dragent.service
 
 BuildArch: noarch
@@ -243,3 +248,6 @@ stestr-%{pyver} run || true
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Fri Mar 22 2019 RDO <dev@lists.rdoproject.org> 14.0.0-0.1.0rc1
+- Update to 14.0.0.0rc1
+
