@@ -97,6 +97,7 @@ Requires: python%{pyver}-oslo-messaging >= 5.29.0
 Requires: python%{pyver}-oslo-serialization >= 2.18.0
 Requires: python%{pyver}-oslo-service >= 1.24.0
 Requires: python%{pyver}-oslo-utils >= 3.33.0
+Requires: python%{pyver}-pbr >= 2.0.0
 
 # Handle python2 exception
 %if %{pyver} == 2
