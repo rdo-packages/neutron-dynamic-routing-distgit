@@ -1,9 +1,9 @@
 # UUID Group Name
 global:Registered-Users	Registered Users
+05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
+ea5b2555bebd4442129d02401794f06366c76572	openstack/neutron-dynamic-routing-ptl
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
+global:Anonymous-Users	Anonymous Users
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
 bffdb5424251b4ea992877d7f9153e21d0a9dc54	openstack/neutron-dynamic-routing-core
-global:Anonymous-Users	Anonymous Users
-05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
 401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
-ea5b2555bebd4442129d02401794f06366c76572	openstack/neutron-dynamic-routing-ptl
