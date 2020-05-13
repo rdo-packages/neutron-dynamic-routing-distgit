@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global modulename neutron_dynamic_routing
 %global servicename neutron-dynamic-routing
@@ -9,12 +8,11 @@
 
 Name: openstack-%{servicename}
 Version: 16.0.0
-Release: 0.2%{?milestone}%{?dist}
+Release: 1%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
-# patches_base=16.0.0.0rc2
 
 Source2: neutron-bgp-dragent.service
 
@@ -218,6 +216,9 @@ stestr run || true
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Wed May 13 2020 RDO <dev@lists.rdoproject.org> 16.0.0-1
+- Update to 16.0.0
+
 * Thu May 07 2020 RDO <dev@lists.rdoproject.org> 16.0.0-0.2.0rc1
 - Update to 16.0.0.0rc2
 
