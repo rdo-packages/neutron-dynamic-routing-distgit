@@ -1,3 +1,4 @@
+%global milestone .0rc1
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global modulename neutron_dynamic_routing
 %global servicename neutron-dynamic-routing
@@ -7,8 +8,8 @@
 %define neutron_epoch 1
 
 Name: openstack-%{servicename}
-Version: XXX
-Release: XXX
+Version: 17.0.0
+Release: 0.1%{?milestone}%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
@@ -181,6 +182,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 
 %check
 # FIXME: we need to ignore unit test results since
+# patches_base=17.0.0.0rc1
 # https://bugzilla.redhat.com/show_bug.cgi?id=1829932
 stestr run || true
 
@@ -214,3 +216,6 @@ stestr run || true
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Fri Sep 25 2020 RDO <dev@lists.rdoproject.org> 17.0.0-0.1.0rc1
+- Update to 17.0.0.0rc1
+
