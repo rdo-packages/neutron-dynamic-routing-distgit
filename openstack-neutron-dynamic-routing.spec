@@ -31,7 +31,7 @@ BuildRequires:  /usr/bin/gpgv2
 
 BuildRequires: openstack-macros
 BuildRequires: python3-devel
-BuildRequires: git
+BuildRequires: git-core
 BuildRequires: systemd
 
 BuildRequires: python3-neutron >= %{neutron_epoch}:%{major_version}
