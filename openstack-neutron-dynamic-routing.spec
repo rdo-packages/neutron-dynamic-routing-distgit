@@ -80,8 +80,8 @@ Summary: Neutron Dynamic Routing python library
 Requires: python3-neutron >= %{neutron_epoch}:%{major_version}
 Requires: python3-eventlet >= 0.18.2
 Requires: python3-netaddr >= 0.7.18
-Requires: python3-sqlalchemy >= 1.2.0
-Requires: python3-alembic >= 0.8.10
+Requires: python3-sqlalchemy >= 1.3.2
+Requires: python3-alembic >= 0.9.6
 Requires: python3-neutron-lib >= 1.26.0
 Requires: python3-oslo-config >= 2:5.2.0
 Requires: python3-oslo-db >= 4.44.0
@@ -89,7 +89,7 @@ Requires: python3-oslo-log >= 3.36.0
 Requires: python3-oslo-messaging >= 5.29.0
 Requires: python3-oslo-serialization >= 2.18.0
 Requires: python3-oslo-service >= 1.24.0
-Requires: python3-oslo-utils >= 3.33.0
+Requires: python3-oslo-utils >= 4.5.0
 Requires: python3-pbr >= 2.0.0
 
 Requires: python3-httplib2 >= 0.9.1
