@@ -252,3 +252,4 @@ stestr-%{pyver} run || true
 * Mon Sep 30 2019 RDO <dev@lists.rdoproject.org> 15.0.0-0.1.0rc1
 - Update to 15.0.0.0rc1
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/neutron-dynamic-routing/commit/4b662c97beb3641830ee28c6ce5e6c8579013517
