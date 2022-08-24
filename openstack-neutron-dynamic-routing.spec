@@ -251,4 +251,3 @@ stestr-%{pyver} run || true
 
 * Mon Sep 30 2019 RDO <dev@lists.rdoproject.org> 15.0.0-0.1.0rc1
 - Update to 15.0.0.0rc1
-
