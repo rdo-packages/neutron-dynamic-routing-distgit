@@ -230,3 +230,4 @@ stestr run || true
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/neutron-dynamic-routing/commit/51a528a630a0dbfee95c8eb1c813a30704642be8
