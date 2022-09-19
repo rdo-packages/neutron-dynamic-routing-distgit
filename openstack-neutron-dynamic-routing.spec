@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global modulename neutron_dynamic_routing
 %global servicename neutron-dynamic-routing
@@ -9,12 +10,16 @@
 %define neutron_epoch 1
 
 Name: openstack-%{servicename}
-Version: XXX
-Release: XXX
+Version: 21.0.0
+Release: 0.1%{?milestone}%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
+#
+# patches_base=21.0.0.0rc1
+#
+
 Source2: neutron-bgp-dragent.service
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
@@ -230,3 +235,6 @@ stestr run || true
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Mon Sep 19 2022 RDO <dev@lists.rdoproject.org> 21.0.0-0.1.0rc1
+- Update to 21.0.0.0rc1
+
