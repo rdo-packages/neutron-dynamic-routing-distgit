@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2478b54b_3a5aa94d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-03-14T11:24:05Z",
+      "side": 1,
+      "message": "it\u0027s missing python3-neutron-tests-tempest",
+      "revId": "bb6dab54a24518e989d920ac797ddf23b94cd828",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
