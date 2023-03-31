@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -11,13 +10,11 @@
 
 Name: openstack-%{servicename}
 Version: 22.0.0
-Release: 0.1%{?milestone}%{?dist}
+Release: 1%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: ASL 2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
-#
-# patches_base=22.0.0.0rc2
 #
 
 Source2: neutron-bgp-dragent.service
@@ -235,6 +232,9 @@ stestr run || true
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Fri Mar 31 2023 RDO <dev@lists.rdoproject.org> 22.0.0-1
+- Update to 22.0.0
+
 * Thu Mar 16 2023 RDO <dev@lists.rdoproject.org> 22.0.0-0.1.0rc2
 - Update to 22.0.0.0rc2
 
