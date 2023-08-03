@@ -1,6 +1,8 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate sphinx openstackdocstheme
 %global modulename neutron_dynamic_routing
 %global servicename neutron-dynamic-routing
 
@@ -12,7 +14,7 @@ Name: openstack-%{servicename}
 Version: XXX
 Release: XXX
 Summary: OpenStack Neutron Dynamic Routing
-License: ASL 2.0
+License: Apache-2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
 Source2: neutron-bgp-dragent.service
@@ -31,68 +33,24 @@ BuildRequires:  /usr/bin/gpgv2
 
 BuildRequires: openstack-macros
 BuildRequires: python3-devel
+BuildRequires: pyproject-rpm-macros
 BuildRequires: git-core
 BuildRequires: systemd
-
 BuildRequires: python3-neutron >= %{neutron_epoch}:%{major_version}
-BuildRequires: python3-oslo-config
-BuildRequires: python3-pbr
-BuildRequires: python3-setuptools
-BuildRequires: python3-os-ken >= 0.3.1
-
-# Requirements needed by tests
-BuildRequires: python3-mock >= 2.0
-# neutron.tests is imported but not specified in test-requirements.txt
-# since it's in neutron project, but packaged in python-neutron-tests
 BuildRequires: python3-neutron-tests >= %{neutron_epoch}:%{major_version}
-BuildRequires: python3-neutron-tests-tempest
 BuildRequires: python3-neutron-lib-tests
-BuildRequires: python3-oslotest >= 1.10.0
-BuildRequires: python3-oslo-concurrency >= 3.8.0
-BuildRequires: python3-stestr
-BuildRequires: python3-subunit >= 0.0.18
-BuildRequires: python3-testresources >= 0.2.4
-BuildRequires: python3-testtools >= 1.4.0
-BuildRequires: python3-testscenarios >= 0.4
-BuildRequires: python3-tempest >= 17.1.0
-BuildRequires: python3-webob >= 1.7.1
-
-# Requirements needed by tests
-BuildRequires: python3-requests-mock >= 1.1
-BuildRequires: python3-webtest >= 2.0
 
 Requires: openstack-%{servicename}-common = %{version}-%{release}
 
 Requires(pre): shadow-utils
-%if 0%{?rhel} && 0%{?rhel} < 8
-%{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
+
+%{?systemd_ordering}
 
 %description
 This is a Dynamic Routing addons for OpenStack Neutron (Networking) service.
 
 %package -n python3-%{servicename}
 Summary: Neutron Dynamic Routing python library
-%{?python_provide:%python_provide python3-%{servicename}}
-
-Requires: python3-neutron >= %{neutron_epoch}:%{major_version}
-Requires: python3-eventlet >= 0.18.2
-Requires: python3-netaddr >= 0.7.18
-Requires: python3-sqlalchemy >= 1.3.3
-Requires: python3-alembic >= 0.9.6
-Requires: python3-neutron-lib >= 1.26.0
-Requires: python3-oslo-config >= 2:5.2.0
-Requires: python3-oslo-db >= 4.44.0
-Requires: python3-oslo-log >= 3.36.0
-Requires: python3-oslo-messaging >= 5.29.0
-Requires: python3-oslo-serialization >= 2.18.0
-Requires: python3-oslo-service >= 1.24.0
-Requires: python3-oslo-utils >= 4.5.0
-Requires: python3-pbr >= 2.0.0
-
-Requires: python3-httplib2 >= 0.9.1
 
 %description -n python3-%{servicename}
 This is Dynamic Routing service plugin for OpenStack Neutron (Networking) service.
@@ -101,7 +59,6 @@ This package contains the Neutron Dynamic Routing Python library.
 
 %package -n python3-%{servicename}-tests
 Summary: Neutron Dynamic Routing tests
-%{?python_provide:%python_provide python3-%{servicename}-tests}
 
 Requires: python3-%{servicename}
 Requires: python3-neutron >= %{neutron_epoch}:%{major_version}
@@ -152,13 +109,33 @@ Neutron.
 %endif
 %autosetup -n %{servicename}-%{upstream_version} -S git
 
-# Let's handle dependencies ourseleves
-%py_req_cleanup
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+%generate_buildrequires
+%pyproject_buildrequires -t -e %{default_toxenv}
 
 %build
-%{py3_build}
+%pyproject_wheel
+
+%install
+%pyproject_install
 
 # Generate sample config files
+export PYTHONPATH="%{buildroot}/%{python3_sitelib}"
+
 for file in `ls etc/oslo-config-generator/*`; do
     oslo-config-generator --config-file=$file
 done
@@ -169,9 +146,6 @@ do
     file=$(basename $filename .sample)
     mv ${filename} ${filedir}/${file}
 done
-
-%install
-%{py3_install}
 
 # Remove unused files
 rm -rf %{buildroot}%{python3_sitelib}/bin
@@ -196,9 +170,7 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/neutron-bgp-dragent.serv
 mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 
 %check
-# FIXME: we need to ignore unit test results since
-# https://bugzilla.redhat.com/show_bug.cgi?id=1829932
-stestr run || true
+%tox -e %{default_toxenv}
 
 %post -n openstack-neutron-bgp-dragent
 %systemd_post neutron-bgp-dragent.service
@@ -213,7 +185,7 @@ stestr run || true
 %license LICENSE
 %doc AUTHORS CONTRIBUTING.rst README.rst
 %{python3_sitelib}/%{modulename}
-%{python3_sitelib}/%{modulename}-*.egg-info
+%{python3_sitelib}/%{modulename}-*.dist-info
 %exclude %{python3_sitelib}/%{modulename}/tests
 
 %files -n python3-%{servicename}-tests
