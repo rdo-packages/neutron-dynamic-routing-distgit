@@ -16,6 +16,23 @@
       "message": "We need to wait for neutron",
       "revId": "c752afc16fde588f7bede74899dfbdbb6086681c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e37d1f_54ec5422",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-09-15T15:10:58Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "c752afc16fde588f7bede74899dfbdbb6086681c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
