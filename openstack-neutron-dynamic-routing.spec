@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -13,13 +12,11 @@
 
 Name: openstack-%{servicename}
 Version: 23.0.0
-Release: 0.1%{?milestone}%{?dist}
+Release: 1%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: Apache-2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
-#
-# patches_base=23.0.0.0rc1
 #
 
 Source2: neutron-bgp-dragent.service
@@ -207,6 +204,9 @@ mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Wed Oct 04 2023 RDO <dev@lists.rdoproject.org> 23.0.0-1
+- Update to 23.0.0
+
 * Thu Sep 14 2023 RDO <dev@lists.rdoproject.org> 23.0.0-0.1.0rc1
 - Update to 23.0.0.0rc1
 
