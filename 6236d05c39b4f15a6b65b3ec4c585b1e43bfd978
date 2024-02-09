@@ -1,0 +1,8 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 09 Feb 2024 13:19:20 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/neutron-dynamic-routing-distgit/+/51634
+Project: openstack/neutron-dynamic-routing-distgit
+Branch: refs/heads/yoga-rdo
