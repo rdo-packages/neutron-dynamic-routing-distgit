@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate sphinx openstackdocstheme
@@ -11,12 +12,16 @@
 %define neutron_epoch 1
 
 Name: openstack-%{servicename}
-Version: XXX
-Release: XXX
+Version: 24.0.0
+Release: 0.1%{?milestone}%{?dist}
 Summary: OpenStack Neutron Dynamic Routing
 License: Apache-2.0
 URL: https://github.com/openstack/%{servicename}
 Source0: http://tarballs.openstack.org/%{servicename}/%{servicename}-%{upstream_version}.tar.gz
+#
+# patches_base=24.0.0.0rc1
+#
+
 Source2: neutron-bgp-dragent.service
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
@@ -202,3 +207,6 @@ mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+* Mon Mar 18 2024 RDO <dev@lists.rdoproject.org> 24.0.0-0.1.0rc1
+- Update to 24.0.0.0rc1
+
