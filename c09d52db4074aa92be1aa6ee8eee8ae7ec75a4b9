@@ -16,6 +16,23 @@
       "message": "waiting for https://review.rdoproject.org/r/c/openstack/neutron-distgit/+/54615 to be merged",
       "revId": "c09d52db4074aa92be1aa6ee8eee8ae7ec75a4b9",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77b9ed1_e8ea80dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-09-23T12:37:21Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "c09d52db4074aa92be1aa6ee8eee8ae7ec75a4b9",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
