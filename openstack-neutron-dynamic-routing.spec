@@ -62,7 +62,6 @@ Summary: Neutron Dynamic Routing tests
 
 Requires: python3-%{servicename}
 Requires: python3-neutron >= %{neutron_epoch}:%{major_version}
-Requires: python3-mock >= 2.0
 Requires: python3-oslotest >= 1.10.0
 Requires: python3-oslo-concurrency >= 3.8.0
 Requires: python3-stestr
