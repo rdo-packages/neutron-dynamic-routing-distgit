@@ -203,3 +203,4 @@ mkdir -p %{buildroot}/%{_sysconfdir}/neutron/conf.d/neutron-bgp-dragent
 %{_unitdir}/neutron-bgp-dragent.service
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/neutron-dynamic-routing/commit/9f21d9aa96427ca714b898ff966a33c09ff80696
